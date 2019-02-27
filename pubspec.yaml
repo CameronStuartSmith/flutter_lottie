@@ -1,6 +1,6 @@
 name: flutter_lottie
 description: Use lottie in flutter to render animations for iOS and Android
-version: 0.1.0
+version: 0.2.0
 author: Cameron Smith <cameronstuartsmith@gmail.com>
 homepage: https://github.com/CameronStuartSmith/flutter_lottie
 
