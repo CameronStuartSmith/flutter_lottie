@@ -96,12 +96,16 @@ public class LottieView implements PlatformView, MethodChannel.MethodCallHandler
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                onPlaybackFinishEvent.success(true);
+                if(onPlaybackFinishEvent != null) {
+                    onPlaybackFinishEvent.success(true);
+                }
             }
 
             @Override
             public void onAnimationCancel(Animator animation) {
-                onPlaybackFinishEvent.success(false);
+                if(onPlaybackFinishEvent != null) {
+                    onPlaybackFinishEvent.success(false);
+                }
             }
 
             @Override
