@@ -1,14 +1,11 @@
 # flutter_lottie
 
-A new flutter plugin project.
+Use Lottie in Flutter.
 
-## Getting Started
+Supports both iOS and Android using [lottie-ios](https://github.com/airbnb/lottie-ios) and [lottie-android](https://github.com/airbnb/lottie-android)
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.io/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## Current Status
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+Supports most features that both iOS and Android support.
+Only supports changing color and opacity through value delegates. More delegates will come later.
+Example in the github repo includes a good intro into using the library.
