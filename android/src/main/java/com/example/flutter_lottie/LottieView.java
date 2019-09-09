@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
 import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
 import com.airbnb.lottie.model.KeyPath;
 import com.airbnb.lottie.value.LottieValueCallback;
@@ -80,9 +81,9 @@ public class LottieView implements PlatformView, MethodChannel.MethodCallHandler
         maxFrame = animationView.getMaxFrame();
 
         if(reverse) {
-            animationView.setRepeatMode(2);
+            animationView.setRepeatMode(LottieDrawable.REVERSE);
         } else {
-            animationView.setRepeatMode(1);
+            animationView.setRepeatMode(LottieDrawable.RESTART);
         }
 
         if(autoPlay) {
@@ -166,7 +167,7 @@ public class LottieView implements PlatformView, MethodChannel.MethodCallHandler
                 animationView.cancelAnimation();
                 animationView.setProgress(0.0f);
                 final int mode = animationView.getRepeatMode();
-                animationView.setRepeatMode(1);
+                animationView.setRepeatMode(LottieDrawable.RESTART);
                 animationView.setRepeatMode(mode);
                 break;
             case "pause":
@@ -182,9 +183,9 @@ public class LottieView implements PlatformView, MethodChannel.MethodCallHandler
             case "setAutoReverseAnimation":
                 boolean reverse = ((args.get("reverse")) != null) ? Boolean.parseBoolean(args.get("reverse").toString()) : false;
                 if(reverse) {
-                    animationView.setRepeatMode(2);
+                    animationView.setRepeatMode(LottieDrawable.REVERSE);
                 } else {
-                    animationView.setRepeatMode(1);
+                    animationView.setRepeatMode(LottieDrawable.RESTART);
                 }
                 break;
             case "setAnimationProgress":
@@ -207,10 +208,10 @@ public class LottieView implements PlatformView, MethodChannel.MethodCallHandler
                 result.success((double)animationView.getSpeed());
                 break;
             case "getLoopAnimation":
-                result.success(animationView.getRepeatCount() == -1 ? true : false);
+                result.success(animationView.getRepeatCount() == LottieDrawable.INFINITE ? true : false);
                 break;
             case "getAutoReverseAnimation":
-                result.success(animationView.getRepeatMode() == 2 ? true : false);
+                result.success(animationView.getRepeatMode() == LottieDrawable.REVERSE ? true : false);
                 break;
             case "setValue":
                 final String value = args.get("value").toString();
