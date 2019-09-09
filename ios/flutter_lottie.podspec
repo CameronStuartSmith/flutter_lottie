@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
   s.dependency 'Flutter'
   s.dependency 'lottie-ios'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 end
 
